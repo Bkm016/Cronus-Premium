@@ -2,6 +2,7 @@ package ink.ptms.cronus.service.guide;
 
 import com.google.common.collect.Lists;
 import ink.ptms.cronus.Cronus;
+import ink.ptms.cronus.event.CronusGuideWayUpdateEvent;
 import io.izzel.taboolib.Version;
 import io.izzel.taboolib.module.hologram.Hologram;
 import io.izzel.taboolib.module.hologram.THologram;
@@ -53,6 +54,10 @@ public class GuideWayData {
 
     public void update() {
         try {
+            CronusGuideWayUpdateEvent event = new CronusGuideWayUpdateEvent(this).call();
+            if (event.isCancelled()) {
+                return;
+            }
             if (player == null || !player.isOnline()) {
                 cancel();
                 return;
@@ -92,12 +97,6 @@ public class GuideWayData {
         Vector vectorAB = end.clone().subtract(start).toVector().normalize();
         return start.clone().add(vectorAB.clone().multiply(distance));
     }
-
-    // *********************************
-    //
-    //        Getter and Setter
-    //
-    // *********************************
 
     public String getOwner() {
         return owner;

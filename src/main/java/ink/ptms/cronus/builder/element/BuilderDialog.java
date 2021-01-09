@@ -23,6 +23,7 @@ import org.bukkit.inventory.Inventory;
 
 import java.io.File;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * @Author 坏黑
@@ -153,25 +154,25 @@ public class BuilderDialog extends BuilderQuest {
                 .build());
         inventory.setItem(11, new ItemBuilder(Material.NAME_TAG)
                 .name("§b对话目标")
-                .lore("", "§f" + (target == null ? "无" : getTargetDisplay()), "§8§m                  ", "§7选择: §8左键", "§7删除: §8左键")
+                .lore("", "§f" + (target == null ? "无" : getTargetDisplay(player)), "§8§m                  ", "§7选择: §8左键", "§7删除: §8左键")
                 .build());
-        inventory.setItem(12, new ItemBuilder(Materials.TRIPWIRE_HOOK.parseMaterial())
+        inventory.setItem(12, new ItemBuilder(Objects.requireNonNull(Materials.TRIPWIRE_HOOK.parseMaterial()))
                 .name("§b对话条件")
                 .lore(toLore(condition == null ? Lists.newArrayList() : condition.asList(0)))
                 .build());
-        inventory.setItem(13, new ItemBuilder(Materials.REPEATER.parseMaterial())
+        inventory.setItem(13, new ItemBuilder(Objects.requireNonNull(Materials.REPEATER.parseMaterial()))
                 .name("§b对话开始动作")
                 .lore(toLore(actionOpen))
                 .build());
-        inventory.setItem(14, new ItemBuilder(Materials.REPEATER.parseMaterial())
+        inventory.setItem(14, new ItemBuilder(Objects.requireNonNull(Materials.REPEATER.parseMaterial()))
                 .name("§b对话结束动作")
                 .lore(toLore(actionClose))
                 .build());
-        inventory.setItem(15, new ItemBuilder(Materials.BOOK.parseMaterial())
+        inventory.setItem(15, new ItemBuilder(Objects.requireNonNull(Materials.BOOK.parseMaterial()))
                 .name("§b对话结构")
                 .lore("", dialog == null ? "§f无" : "§f...")
                 .build());
-        inventory.setItem(49, new ItemBuilder(Materials.WRITABLE_BOOK.parseMaterial())
+        inventory.setItem(49, new ItemBuilder(Objects.requireNonNull(Materials.WRITABLE_BOOK.parseMaterial()))
                 .name("§a保存配置")
                 .lore("", "§7文件位置", "§8§nplugins/Cronus/dialog/builder/" + id + ".yml")
                 .build());
@@ -179,7 +180,7 @@ public class BuilderDialog extends BuilderQuest {
         player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 1f, 1f);
     }
 
-    protected String getTargetDisplay() {
-        return Cronus.getCronusService().getService(EntitySelector.class).getSelectDisplay(target);
+    protected String getTargetDisplay(Player player) {
+        return Cronus.getCronusService().getService(EntitySelector.class).getSelectDisplay(target, player);
     }
 }

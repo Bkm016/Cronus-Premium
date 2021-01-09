@@ -2,6 +2,7 @@ package ink.ptms.cronus.service.selector.impl;
 
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Entity;
+import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 
 import java.util.Arrays;
@@ -18,7 +19,7 @@ public abstract class Selector {
 
     abstract public String getPlugin();
 
-    abstract public String getDisplay(String in);
+    abstract public String getDisplay(String in, Player player);
 
     abstract public String fromEntity(Entity entity);
 

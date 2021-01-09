@@ -13,6 +13,7 @@ import ink.ptms.cronus.uranus.annotations.Auto;
 import io.izzel.taboolib.module.lite.SimpleI18n;
 import io.izzel.taboolib.util.ArrayUtil;
 import org.bukkit.entity.Entity;
+import org.bukkit.entity.Player;
 
 import java.util.List;
 import java.util.Map;
@@ -61,12 +62,12 @@ public class EntitySelector implements Service {
         return entityMap.computeIfAbsent(in, i -> BukkitParser.toEntity(in)).isSelect(entity);
     }
 
-    public String getSelectDisplay(String in) {
+    public String getSelectDisplay(String in, Player player) {
         String[] v = in.split("=");
         if (v.length > 1) {
             for (Selector selector : selectors) {
                 if (selector.match(v[0])) {
-                    return selector.isHooked() ? selector.getDisplay(ArrayUtil.arrayJoin(v, 1)) : "No Hooked";
+                    return selector.isHooked() ? selector.getDisplay(ArrayUtil.arrayJoin(v, 1), player) : "No Hooked";
                 }
             }
         }
@@ -83,5 +84,17 @@ public class EntitySelector implements Service {
             }
         }
         return "type=" + entity.getType() + ",name=" + SimpleI18n.getName(entity);
+    }
+
+    public List<Selector> getSelectors() {
+        return selectors;
+    }
+
+    public Map<String, EntityCache> getEntityCache() {
+        return entityCache;
+    }
+
+    public Map<String, ink.ptms.cronus.internal.bukkit.Entity> getEntityMap() {
+        return entityMap;
     }
 }

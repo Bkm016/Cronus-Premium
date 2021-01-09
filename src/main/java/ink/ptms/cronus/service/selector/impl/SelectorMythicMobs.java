@@ -4,6 +4,7 @@ import io.lumine.xikage.mythicmobs.MythicMobs;
 import io.lumine.xikage.mythicmobs.mobs.ActiveMob;
 import io.lumine.xikage.mythicmobs.mobs.MythicMob;
 import org.bukkit.entity.Entity;
+import org.bukkit.entity.Player;
 
 /**
  * @Author 坏黑
@@ -22,7 +23,7 @@ public class SelectorMythicMobs extends Selector {
     }
 
     @Override
-    public String getDisplay(String in) {
+    public String getDisplay(String in, Player player) {
         MythicMob mythicMob = ((MythicMobs) plugin).getMobManager().getMythicMob(in);
         return mythicMob == null ? "?" : mythicMob.getDisplayName().get();
     }

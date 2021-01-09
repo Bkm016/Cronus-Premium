@@ -25,7 +25,7 @@ public class EntityCaught extends Entity {
                 .name("§7目标实体 (鱼钩目标)")
                 .lore(
                         "",
-                        "§f" + (data == null ? "无" : Cronus.getCronusService().getService(EntitySelector.class).getSelectDisplay(String.valueOf(data)))
+                        "§f" + (data == null ? "无" : Cronus.getCronusService().getService(EntitySelector.class).getSelectDisplay(String.valueOf(data), player))
                 ).build();
     }
 

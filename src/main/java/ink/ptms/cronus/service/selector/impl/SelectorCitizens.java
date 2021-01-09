@@ -3,6 +3,7 @@ package ink.ptms.cronus.service.selector.impl;
 import net.citizensnpcs.Citizens;
 import net.citizensnpcs.api.npc.NPC;
 import org.bukkit.entity.Entity;
+import org.bukkit.entity.Player;
 import org.bukkit.util.NumberConversions;
 
 /**
@@ -22,7 +23,7 @@ public class SelectorCitizens extends Selector {
     }
 
     @Override
-    public String getDisplay(String in) {
+    public String getDisplay(String in, Player player) {
         NPC npc = ((Citizens) plugin).getNPCRegistry().getById(NumberConversions.toInt(in));
         return npc == null ? "?" : npc.getName();
     }

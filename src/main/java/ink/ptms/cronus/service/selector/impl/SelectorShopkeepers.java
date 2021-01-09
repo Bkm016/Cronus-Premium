@@ -5,6 +5,7 @@ import com.nisovin.shopkeepers.ShopkeepersPlugin;
 import io.lumine.xikage.mythicmobs.MythicMobs;
 import io.lumine.xikage.mythicmobs.mobs.ActiveMob;
 import org.bukkit.entity.Entity;
+import org.bukkit.entity.Player;
 
 import java.util.UUID;
 
@@ -25,7 +26,7 @@ public class SelectorShopkeepers extends Selector {
     }
 
     @Override
-    public String getDisplay(String in) {
+    public String getDisplay(String in, Player player) {
         try {
             Shopkeeper shopkeeper = ((ShopkeepersPlugin) plugin).getShopkeeper(UUID.fromString(in));
             return shopkeeper == null ? "?" : shopkeeper.getName();

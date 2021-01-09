@@ -30,7 +30,7 @@ public class EntityVictim extends Entity {
                 .name("§7目标实体 (受伤者)")
                 .lore(
                         "",
-                        "§f" + (data == null ? "无" : Cronus.getCronusService().getService(EntitySelector.class).getSelectDisplay(String.valueOf(data)))
+                        "§f" + (data == null ? "无" : Cronus.getCronusService().getService(EntitySelector.class).getSelectDisplay(String.valueOf(data), player))
                 ).build();
     }
 

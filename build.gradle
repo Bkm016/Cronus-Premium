@@ -5,7 +5,7 @@ plugins {
 }
 
 group = 'ink.ptms.cronus'
-version = '1.4.1.2020.10.5-PREMIUM'
+version = '1.4.2.2021.1-9-PREMIUM'
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
@@ -31,7 +31,7 @@ dependencies {
     compile 'me.clip:placeholderapi:2.10.4'
     compile 'net.md_5.bungee:BungeeCord:1:all'
     compile 'com.sk89q.worldedit:WorldEdit:7:all'
-    compile 'ink.ptms.adyeshach:Adyeshach:1.0.1'
+    compile 'ink.ptms.adyeshach:Adyeshach:1.0.4'
     compile 'com.mongodb:MongoDB:3.12.2:all'
     compile "org.jetbrains.kotlin:kotlin-stdlib"
     compileOnly fileTree(dir: 'libs', includes: ['*.jar'])

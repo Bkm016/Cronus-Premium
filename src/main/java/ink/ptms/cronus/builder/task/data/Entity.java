@@ -36,7 +36,7 @@ public class Entity extends TaskData {
                 .name("§7目标实体")
                 .lore(
                         "",
-                        "§f" + (data == null ? "无" : Cronus.getCronusService().getService(EntitySelector.class).getSelectDisplay(String.valueOf(data)))
+                        "§f" + (data == null ? "无" : Cronus.getCronusService().getService(EntitySelector.class).getSelectDisplay(String.valueOf(data), player))
                 ).build();
     }
 
@@ -52,10 +52,10 @@ public class Entity extends TaskData {
 
     public static class EntitySelect implements Catchers.Catcher {
 
-        private Player player;
-        private Object origin;
-        private BuilderQuest.EditTask editTask;
-        private Runnable closeTask;
+        private final Player player;
+        private final Object origin;
+        private final BuilderQuest.EditTask editTask;
+        private final Runnable closeTask;
 
         public EntitySelect(Player player, Object origin, BuilderQuest.EditTask editTask, Runnable closeTask) {
             this.player = player;
@@ -141,6 +141,19 @@ public class Entity extends TaskData {
                             "§7示范:",
                             "§fshop=ea23 ... §8(序号为 \"ea23 ...\" 的 Shopkeepers 实体作为目标)"
                     ))).clickSuggest("shopkeeper=[uuid]").send(player);
+            TellrawJson.create()
+                    .append("§7§l[§f§lCronus§7§l] §7- ")
+                    .append(format("anpc=[id]"))
+                    .hoverText(String.join("\n", Lists.newArrayList(
+                            "§7Adyeshach 扩展支持",
+                            "§7根据 Adyeshach 序号判断目标",
+                            "",
+                            "§7别名:",
+                            "§fady=[id]",
+                            "",
+                            "§7示范:",
+                            "§fanpc=ady_1 ... §8(序号为 \"ady_1\" 的 Adyeshach 实体作为目标)"
+                    ))).clickSuggest("anpc=[id]").send(player);
             return this;
         }
 

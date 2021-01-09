@@ -8,7 +8,6 @@ import ink.ptms.cronus.internal.task.Task;
 import ink.ptms.cronus.internal.task.special.Countable;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.entity.Player;
-import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
 
 import java.util.Map;

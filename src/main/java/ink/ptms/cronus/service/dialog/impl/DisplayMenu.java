@@ -5,7 +5,6 @@ import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import ink.ptms.cronus.Cronus;
 import ink.ptms.cronus.internal.program.NoneProgram;
-import ink.ptms.cronus.internal.program.QuestProgram;
 import ink.ptms.cronus.service.dialog.DialogPack;
 import ink.ptms.cronus.service.dialog.api.DisplayBase;
 import ink.ptms.cronus.service.dialog.api.Reply;

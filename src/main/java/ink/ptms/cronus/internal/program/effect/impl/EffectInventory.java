@@ -2,11 +2,7 @@ package ink.ptms.cronus.internal.program.effect.impl;
 
 import ink.ptms.cronus.internal.bukkit.ItemStack;
 import ink.ptms.cronus.internal.bukkit.parser.BukkitParser;
-import ink.ptms.cronus.internal.condition.Condition;
-import ink.ptms.cronus.internal.condition.ConditionParser;
-import ink.ptms.cronus.internal.program.NoneProgram;
 import ink.ptms.cronus.internal.program.QuestProgram;
-import ink.ptms.cronus.internal.program.effect.EffectParser;
 import ink.ptms.cronus.uranus.annotations.Auto;
 import ink.ptms.cronus.uranus.program.Program;
 import ink.ptms.cronus.uranus.program.effect.Effect;

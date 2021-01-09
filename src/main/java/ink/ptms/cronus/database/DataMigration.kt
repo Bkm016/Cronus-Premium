@@ -1,6 +1,5 @@
 package ink.ptms.cronus.database
 
-import ink.ptms.cronus.Cronus
 import ink.ptms.cronus.database.data.DataPlayer
 import ink.ptms.cronus.database.impl.DatabaseMongoDB
 import ink.ptms.cronus.database.impl.DatabaseSQL

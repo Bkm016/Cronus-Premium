@@ -1,10 +1,11 @@
 package ink.ptms.cronus.builder.task.item;
 
 import ink.ptms.cronus.builder.task.TaskEntry;
-import ink.ptms.cronus.builder.task.data.*;
-import ink.ptms.cronus.builder.task.data.enums.BlockFace;
+import ink.ptms.cronus.builder.task.data.Action;
+import ink.ptms.cronus.builder.task.data.Count;
+import ink.ptms.cronus.builder.task.data.Item;
+import ink.ptms.cronus.builder.task.data.Location;
 import ink.ptms.cronus.internal.QuestTask;
-import ink.ptms.cronus.internal.task.block.TaskBlockInteract;
 import ink.ptms.cronus.internal.task.item.TaskItemUse;
 import ink.ptms.cronus.uranus.annotations.Auto;
 import io.izzel.taboolib.util.item.ItemBuilder;

@@ -1,7 +1,6 @@
 package ink.ptms.cronus.internal.program.function;
 
 import ink.ptms.cronus.Cronus;
-import ink.ptms.cronus.CronusAPI;
 import ink.ptms.cronus.database.data.DataPlayer;
 import ink.ptms.cronus.database.data.DataQuest;
 import ink.ptms.cronus.internal.Quest;
@@ -10,7 +9,6 @@ import ink.ptms.cronus.uranus.annotations.Auto;
 import ink.ptms.cronus.uranus.function.Function;
 import ink.ptms.cronus.uranus.program.Program;
 import io.izzel.taboolib.module.locale.TLocale;
-import org.bukkit.entity.Player;
 
 import java.util.Map;
 import java.util.Objects;

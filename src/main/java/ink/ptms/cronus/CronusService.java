@@ -22,8 +22,6 @@ import ink.ptms.cronus.internal.condition.ConditionCache;
 import ink.ptms.cronus.internal.task.TaskCache;
 import ink.ptms.cronus.service.Service;
 import ink.ptms.cronus.uranus.annotations.Auto;
-import io.izzel.taboolib.TabooLib;
-import io.izzel.taboolib.TabooLibAPI;
 import io.izzel.taboolib.TabooLibLoader;
 import io.izzel.taboolib.module.inject.TInject;
 import io.izzel.taboolib.module.locale.logger.TLogger;

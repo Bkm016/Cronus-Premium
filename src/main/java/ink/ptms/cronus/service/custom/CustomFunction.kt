@@ -2,12 +2,10 @@ package ink.ptms.cronus.service.custom
 
 import ink.ptms.cronus.Cronus
 import ink.ptms.cronus.internal.program.NoneProgram
-import ink.ptms.cronus.internal.program.QuestProgram
 import ink.ptms.cronus.internal.program.effect.EffectParser
 import ink.ptms.cronus.service.Service
 import ink.ptms.cronus.uranus.annotations.Auto
 import ink.ptms.cronus.uranus.program.effect.Effect
-import io.izzel.taboolib.util.lite.Scripts
 import org.bukkit.entity.Player
 
 /**

@@ -7,8 +7,6 @@ import ink.ptms.cronus.uranus.Uranus
 import ink.ptms.cronus.uranus.annotations.Auto
 import ink.ptms.cronus.uranus.event.UranusScriptEvalEvent
 import ink.ptms.cronus.uranus.program.Program
-import io.izzel.taboolib.module.inject.TInject
-import io.izzel.taboolib.module.locale.logger.TLogger
 import io.izzel.taboolib.module.locale.logger.TLoggerManager
 import io.izzel.taboolib.util.lite.Scripts
 import javax.script.CompiledScript

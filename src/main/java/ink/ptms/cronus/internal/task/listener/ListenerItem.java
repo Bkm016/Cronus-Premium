@@ -1,7 +1,6 @@
 package ink.ptms.cronus.internal.task.listener;
 
 import ink.ptms.cronus.CronusAPI;
-import ink.ptms.cronus.internal.task.block.TaskBlockInteract;
 import ink.ptms.cronus.internal.task.item.*;
 import ink.ptms.cronus.internal.task.player.total.TaskItemDamage;
 import io.izzel.taboolib.module.inject.TListener;

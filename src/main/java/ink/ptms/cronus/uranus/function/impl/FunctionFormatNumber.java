@@ -3,7 +3,6 @@ package ink.ptms.cronus.uranus.function.impl;
 import ink.ptms.cronus.uranus.annotations.Auto;
 import ink.ptms.cronus.uranus.function.Function;
 import ink.ptms.cronus.uranus.program.Program;
-import io.izzel.taboolib.util.Times;
 import org.bukkit.util.NumberConversions;
 
 import java.text.DecimalFormat;

@@ -38,11 +38,11 @@ public class FunctionLoader {
         return null;
     }
 
-    public static void registerFunction(Function function) throws IllegalAccessException {
-        if (getFunction(function.getName()) == null) {
-            functions.add(function);
+    public static void registerFunction(Function function) {
+        if (getFunction(function.getName()) != null) {
+            throw new IllegalStateException("函数已被注册: " + function.getName());
         }
-        throw new IllegalAccessException("函数已被注册: " + function.getName());
+        functions.add(function);
     }
 
     public static List<Function> getFunctions() {

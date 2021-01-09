@@ -5,11 +5,11 @@ import ink.ptms.cronus.Cronus;
 import ink.ptms.cronus.builder.Builders;
 import ink.ptms.cronus.builder.task.TaskEntry;
 import ink.ptms.cronus.util.Utils;
-import io.izzel.taboolib.module.lite.SimpleIterator;
+import io.izzel.taboolib.internal.xseries.XMaterial;
+import io.izzel.taboolib.kotlin.Indexed;
 import io.izzel.taboolib.util.item.ItemBuilder;
 import io.izzel.taboolib.util.item.Items;
 import io.izzel.taboolib.util.item.inventory.ClickType;
-import io.izzel.taboolib.util.lite.Materials;
 import org.bukkit.Bukkit;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
@@ -25,8 +25,6 @@ import java.util.Map;
 public class BuilderTaskType {
 
     private final BuilderTask builderTask;
-    private Player player;
-    private int page;
     private boolean toggle;
     private final Map<Integer, TaskEntry> map = Maps.newHashMap();
 
@@ -40,8 +38,6 @@ public class BuilderTaskType {
 
     public void open(Player player, int page) {
         this.map.clear();
-        this.player = player;
-        this.page = page;
         this.toggle = true;
         // 创建界面
         Inventory inventory = Builders.normal("结构编辑 : 条目类型",
@@ -49,11 +45,11 @@ public class BuilderTaskType {
                     if (e.getClickType() == ClickType.CLICK) {
                         e.castClick().setCancelled(true);
                         // 上一页
-                        if (e.castClick().getRawSlot() == 46 && Materials.GREEN_STAINED_GLASS_PANE.isSimilar(e.castClick().getCurrentItem())) {
+                        if (e.castClick().getRawSlot() == 46 && XMaterial.GREEN_STAINED_GLASS_PANE.isSimilar(e.castClick().getCurrentItem())) {
                             open(player, page - 1);
                         }
                         // 下一页
-                        else if (e.castClick().getRawSlot() == 52 && Materials.GREEN_STAINED_GLASS_PANE.isSimilar(e.castClick().getCurrentItem())) {
+                        else if (e.castClick().getRawSlot() == 52 && XMaterial.GREEN_STAINED_GLASS_PANE.isSimilar(e.castClick().getCurrentItem())) {
                             open(player, page + 1);
                         }
                         // 返回
@@ -78,18 +74,18 @@ public class BuilderTaskType {
                     }
                 }
         );
-        List<TaskEntry> iterator = new SimpleIterator(Builders.getTaskEntries()).listIterator(page * 28, (page + 1) * 28);
+        List<TaskEntry> iterator = Indexed.INSTANCE.subList(Builders.getTaskEntries(), page * 28, (page + 1) * 28 - 1);
         for (int i = 0; i < iterator.size(); i++) {
             inventory.setItem(Items.INVENTORY_CENTER[i], iterator.get(i).getItem());
             map.put(Items.INVENTORY_CENTER[i], iterator.get(i));
         }
         if (page > 0) {
-            inventory.setItem(46, new ItemBuilder(Materials.GREEN_STAINED_GLASS_PANE.parseItem()).name("§a上一页").lore("", "§7点击").build());
+            inventory.setItem(46, new ItemBuilder(XMaterial.GREEN_STAINED_GLASS_PANE).name("§a上一页").lore("", "§7点击").build());
         }
         if (Utils.next(page, Builders.getTaskEntries().size(), 28)) {
-            inventory.setItem(52, new ItemBuilder(Materials.GREEN_STAINED_GLASS_PANE.parseItem()).name("§a下一页").lore("", "§7点击").build());
+            inventory.setItem(52, new ItemBuilder(XMaterial.GREEN_STAINED_GLASS_PANE).name("§a下一页").lore("", "§7点击").build());
         }
-        inventory.setItem(49, new ItemBuilder(Materials.RED_STAINED_GLASS_PANE.parseItem()).name("§c上级目录").lore("", "§7点击").build());
+        inventory.setItem(49, new ItemBuilder(XMaterial.RED_STAINED_GLASS_PANE).name("§c上级目录").lore("", "§7点击").build());
         player.openInventory(inventory);
         player.playSound(player.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 1f, 1f);
         this.toggle = false;

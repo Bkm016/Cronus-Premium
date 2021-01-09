@@ -9,7 +9,7 @@ import ink.ptms.cronus.builder.task.Cache;
 import ink.ptms.cronus.builder.task.TaskData;
 import ink.ptms.cronus.internal.bukkit.parser.BukkitParser;
 import ink.ptms.cronus.util.Utils;
-import io.izzel.taboolib.module.lite.SimpleIterator;
+import io.izzel.taboolib.kotlin.Indexed;
 import io.izzel.taboolib.util.Strings;
 import io.izzel.taboolib.util.item.ItemBuilder;
 import io.izzel.taboolib.util.item.Items;
@@ -166,7 +166,7 @@ public class Block extends TaskData {
                         }, 1);
                     }
                 });
-        List<ItemStack> iterator = new SimpleIterator(Cache.BLOCKS).listIterator(page * 28, (page + 1) * 28);
+        List<ItemStack> iterator = Indexed.INSTANCE.subList(Cache.BLOCKS, page * 28, (page + 1) * 28 - 1);
         for (int i = 0; i < iterator.size(); i++) {
             ItemStack parseItem = iterator.get(i).clone();
             try {
@@ -224,7 +224,7 @@ public class Block extends TaskData {
                         }, 1);
                     }
                 });
-        List<ItemStack> iterator = new SimpleIterator(selected).listIterator(page * 28, (page + 1) * 28);
+        List<ItemStack> iterator = Indexed.INSTANCE.subList(selected, page * 28, (page + 1) * 28 - 1);
         for (int i = 0; i < iterator.size(); i++) {
             try {
                 inventory.setItem(Items.INVENTORY_CENTER[i], new ItemBuilder(iterator.get(i)).lore("", "§8删除").build());

@@ -5,7 +5,7 @@ import com.google.common.collect.Maps;
 import ink.ptms.cronus.Cronus;
 import ink.ptms.cronus.builder.Builders;
 import ink.ptms.cronus.util.Utils;
-import io.izzel.taboolib.module.lite.SimpleIterator;
+import io.izzel.taboolib.kotlin.Indexed;
 import io.izzel.taboolib.util.ArrayUtil;
 import io.izzel.taboolib.util.item.ItemBuilder;
 import io.izzel.taboolib.util.item.Items;
@@ -129,7 +129,7 @@ public class DialogReply {
                         }, 1);
                     }
                 });
-        List<Dialog> iterator = new SimpleIterator(reply).listIterator(page * 28, (page + 1) * 28);
+        List<Dialog> iterator = Indexed.INSTANCE.subList(reply, page * 28, (page + 1) * 28 - 1);
         for (int i = 0; i < iterator.size(); i++) {
             if (iterator.get(i) instanceof DialogAppend) {
                 inventory.setItem(Items.INVENTORY_CENTER[i], new ItemBuilder(Material.MAP)

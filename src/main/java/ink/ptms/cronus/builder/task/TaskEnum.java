@@ -6,7 +6,7 @@ import ink.ptms.cronus.Cronus;
 import ink.ptms.cronus.builder.Builders;
 import ink.ptms.cronus.builder.element.BuilderTaskData;
 import ink.ptms.cronus.util.Utils;
-import io.izzel.taboolib.module.lite.SimpleIterator;
+import io.izzel.taboolib.kotlin.Indexed;
 import io.izzel.taboolib.util.Strings;
 import io.izzel.taboolib.util.item.ItemBuilder;
 import io.izzel.taboolib.util.item.Items;
@@ -123,7 +123,7 @@ public abstract class TaskEnum<T extends Enum<?>> extends TaskData {
                         }, 1);
                     }
                 });
-        List<T> iterator = new SimpleIterator(Lists.newArrayList(values())).listIterator(page * 28, (page + 1) * 28);
+        List<T> iterator = Indexed.INSTANCE.subList(Lists.newArrayList(values()), page * 28, (page + 1) * 28 - 1);
         for (int i = 0; i < iterator.size(); i++) {
             try {
                 T e = iterator.get(i);

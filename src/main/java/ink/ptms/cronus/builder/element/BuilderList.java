@@ -5,7 +5,7 @@ import com.google.common.collect.Maps;
 import ink.ptms.cronus.Cronus;
 import ink.ptms.cronus.builder.Builders;
 import ink.ptms.cronus.util.Utils;
-import io.izzel.taboolib.module.lite.SimpleIterator;
+import io.izzel.taboolib.kotlin.Indexed;
 import io.izzel.taboolib.module.locale.TLocale;
 import io.izzel.taboolib.module.tellraw.TellrawJson;
 import io.izzel.taboolib.util.ArrayUtil;
@@ -147,7 +147,7 @@ public class BuilderList extends BuilderQuest {
                     }
                 });
         // 获取成员
-        List<String> iterator = new SimpleIterator(this.list).listIterator(page * 28, (page + 1) * 28);
+        List<String> iterator = Indexed.INSTANCE.subList(this.list, page * 28, (page + 1) * 28 - 1);
         for (int i = 0; i < iterator.size(); i++) {
             // 追加
             if (iterator.get(i).equals("$append")) {

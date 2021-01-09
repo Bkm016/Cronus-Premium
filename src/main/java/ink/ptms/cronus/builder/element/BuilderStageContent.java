@@ -9,7 +9,7 @@ import ink.ptms.cronus.builder.editor.data.PlayerData;
 import ink.ptms.cronus.builder.editor.data.PlayerDataHandler;
 import ink.ptms.cronus.internal.api.Helper;
 import ink.ptms.cronus.util.Utils;
-import io.izzel.taboolib.module.lite.SimpleIterator;
+import io.izzel.taboolib.kotlin.Indexed;
 import io.izzel.taboolib.module.locale.TLocale;
 import io.izzel.taboolib.util.item.ItemBuilder;
 import io.izzel.taboolib.util.item.Items;
@@ -138,7 +138,7 @@ public class BuilderStageContent implements Helper {
                         }, 1);
                     }
                 });
-        List<List<String>> iterator = new SimpleIterator(content).listIterator(page * 28, (page + 1) * 28);
+        List<List<String>> iterator = Indexed.INSTANCE.subList(content, page * 28, (page + 1) * 28 - 1);
         for (int i = 0; i < iterator.size(); i++) {
             List<String> content = iterator.get(i);
             // 添加笔记

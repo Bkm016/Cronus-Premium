@@ -7,7 +7,7 @@ import ink.ptms.cronus.builder.editor.module.IModule;
 import ink.ptms.cronus.builder.editor.module.action.*;
 import ink.ptms.cronus.builder.editor.module.tag.TagParser;
 import ink.ptms.cronus.builder.editor.module.tag.TagResult;
-import io.izzel.taboolib.module.lite.SimpleIterator;
+import io.izzel.taboolib.kotlin.Indexed;
 import io.izzel.taboolib.module.tellraw.TellrawJson;
 import org.bukkit.entity.Player;
 import org.bukkit.util.NumberConversions;
@@ -122,8 +122,11 @@ public class ContentEdit extends IModule {
         if (!result.getResult().isEmpty()) {
             playerData.setIndex(NumberConversions.toInt(result.getResult()));
         }
-        SimpleIterator iterator = new SimpleIterator(playerData.getLines());
-        List<String> list = iterator.listIterator(playerData.getIndex() * EditorAPI.getListLength(), (playerData.getIndex() + 1) * EditorAPI.getListLength());
+        List<String> list = Indexed.INSTANCE.subList(
+                playerData.getLines(),
+                playerData.getIndex() * EditorAPI.getListLength(),
+                (playerData.getIndex() + 1) * EditorAPI.getListLength() - 1
+        );
         sender.sendMessage(TITLE[0]);
         if (playerData.getIndex() > 0) {
             TellrawJson.create()

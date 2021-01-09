@@ -12,7 +12,7 @@ import ink.ptms.cronus.internal.condition.Cond;
 import ink.ptms.cronus.internal.condition.CondNull;
 import ink.ptms.cronus.internal.condition.ConditionParser;
 import ink.ptms.cronus.util.Utils;
-import io.izzel.taboolib.module.lite.SimpleIterator;
+import io.izzel.taboolib.kotlin.Indexed;
 import io.izzel.taboolib.module.locale.TLocale;
 import io.izzel.taboolib.module.tellraw.TellrawJson;
 import io.izzel.taboolib.util.item.ItemBuilder;
@@ -191,7 +191,7 @@ public class BuilderCondition implements Helper {
             List<MatchEntry> entryCollect = Lists.newArrayList(entry.getCollect());
             entryCollect.add(new MatchAppend());
             // 获取有效内容
-            List<MatchEntry> iterator = new SimpleIterator(entryCollect).listIterator(page * 28, (page + 1) * 28);
+            List<MatchEntry> iterator = Indexed.INSTANCE.subList(entryCollect, page * 28, (page + 1) * 28 - 1);
             for (int i = 0; i < iterator.size(); i++) {
                 MatchEntry entry = iterator.get(i);
                 if (entry instanceof MatchAppend) {

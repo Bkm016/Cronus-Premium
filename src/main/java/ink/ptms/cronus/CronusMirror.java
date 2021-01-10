@@ -73,12 +73,6 @@ public class CronusMirror {
             return this;
         }
 
-        // *********************************
-        //
-        //        Getter and Setter
-        //
-        // *********************************
-
         public double getTimeTotal() {
             return timeTotal;
         }

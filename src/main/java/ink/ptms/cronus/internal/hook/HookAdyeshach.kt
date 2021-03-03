@@ -54,7 +54,7 @@ class HookAdyeshach : Listener {
             // 对话
             if (!cooldown.isCooldown(e.player.name, 0)) {
                 Cronus.getCronusService().getService(Dialog::class.java).dialogs.forEach {
-                    if (it.target.startsWith("anpc=") || it.target.startsWith("ady=")) {
+                    if (it.target != null && (it.target.startsWith("anpc=") || it.target.startsWith("ady="))) {
                         if (e.entity.id == it.target.split("=")[1] && (it.condition == null || it.condition.check(e.player))) {
                             try {
                                 it.dialog.display(e.player)
